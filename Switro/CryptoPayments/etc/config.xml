@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/config.xsd">
+    <default>
+        <payment>
+            <switro_cryptopayments>
+                <model>Switro\CryptoPayments\Model\Payment</model>
+                <active>1</active>
+                <title>Switro Solana/ETH Wallet</title>
+                <description>Pay with Solana/ETH through Switro</description>
+                <api_key></api_key>
+                <network>mainnet</network>
+                <webhook_url>{{base_url}}switro/webhook</webhook_url>
+            </switro_cryptopayments>
+        </payment>
+    </default>
+</config>

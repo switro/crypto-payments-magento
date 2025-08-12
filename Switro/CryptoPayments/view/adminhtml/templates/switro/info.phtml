@@ -1,0 +1,23 @@
+<?php
+/** @var $block \Switro\CryptoPayments\Block\Adminhtml\Order\SwitroInfo */
+$order = $block->getOrder();
+if (!$order) {
+    return;
+}
+$checkoutId = $order->getData('switro_checkout_id');
+$paymentId = $order->getData('switro_payment_id');
+$network = $order->getData('switro_network');
+$amount = $order->getData('switro_amount_original');
+if (!$checkoutId) {
+    echo '<div class="admin__page-section-item"><strong>Switro:</strong> No Switro payment found for this order.</div>';
+} else {
+    ?>
+    <div class="admin__page-section-item">
+        <strong>Switro Payment Info</strong>
+        <div>Checkout ID: <?php echo $this->escapeHtml($checkoutId); ?></div>
+        <div>Payment ID: <?php echo $this->escapeHtml($paymentId); ?></div>
+        <div>Network: <?php echo $this->escapeHtml($network); ?></div>
+        <div>Original Amount: <?php echo $this->escapeHtml($amount); ?></div>
+    </div>
+    <?php
+}

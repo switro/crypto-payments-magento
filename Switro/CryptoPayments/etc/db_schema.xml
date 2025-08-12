@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="sales_order" resource="default" engine="innodb" comment="Sales Order">
+        <column xsi:type="varchar" name="switro_checkout_id" nullable="true" length="255" comment="Switro Checkout ID"/>
+        <column xsi:type="varchar" name="switro_payment_id" nullable="true" length="255" comment="Switro Payment ID"/>
+        <column xsi:type="varchar" name="switro_network" nullable="true" length="50" comment="Switro Network"/>
+        <column xsi:type="decimal" name="switro_amount_original" nullable="true" precision="12" scale="4" comment="Switro Original Amount"/>
+    </table>
+</schema>
