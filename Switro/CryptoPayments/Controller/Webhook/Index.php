@@ -8,7 +8,11 @@ use Switro\CryptoPayments\Helper\Data as SwitroHelper;
 use Magento\Sales\Model\OrderFactory;
 use Magento\Sales\Api\OrderRepositoryInterface;
 
-class Index extends Action
+use Magento\Framework\App\CsrfAwareActionInterface;
+use Magento\Framework\App\RequestInterface;
+use Magento\Framework\App\Request\InvalidRequestException;
+
+class Index extends Action implements CsrfAwareActionInterface
 {
     protected $curl;
     protected $switroHelper;
@@ -115,5 +119,18 @@ class Index extends Action
             $this->getResponse()->setBody(json_encode(['error' => 'Failed to contact Switro']));
             return;
         }
+    }
+
+    /**
+     * Disable CSRF validation for this controller (needed for webhook POST).
+     */
+    public function createCsrfValidationException(RequestInterface $request): ?InvalidRequestException
+    {
+        return null;
+    }
+
+    public function validateForCsrf(RequestInterface $request): ?bool
+    {
+        return true; // Always allow POST requests without form_key
     }
 }

@@ -53,4 +53,4 @@ It provides an admin configuration panel, a frontend checkout card, and a redire
 
 - **X:** [https://x.com/switropay](https://x.com/switropay)  
 - **Youtube:** [https://www.youtube.com/@switropay](https://www.youtube.com/@switropay)
-- **Discord:** [https://discord.com/invite/switro](https://discord.com/invite/switro)
+- **Discord:** [https://discord.com/invite/yRwgHWS8zG](https://discord.com/invite/yRwgHWS8zG)

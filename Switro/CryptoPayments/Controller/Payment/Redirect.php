@@ -56,6 +56,9 @@ class Redirect extends Action
 
         // build items
         $items = [];
+        $store = $order->getStore();
+        $mediaBaseUrl = $store->getBaseUrl(\Magento\Framework\UrlInterface::URL_TYPE_MEDIA);
+
         foreach ($order->getAllVisibleItems() as $item) {
             $product = $item->getProduct();
             $itemData = [
@@ -64,10 +67,12 @@ class Redirect extends Action
                 'item_amount' => (float)$item->getRowTotal(),
                 'item_description' => $product ? $product->getShortDescription() : '',
             ];
-            $imageUrl = ($product && $product->getImage()) ? $product->getImage() : '';
-            if (!empty($imageUrl)) {
+
+            if ($product && $product->getImage()) {
+                $imageUrl = $mediaBaseUrl . 'catalog/product' . $product->getImage();
                 $itemData['item_image_url'] = $imageUrl;
             }
+
             $items[] = $itemData;
         }
 
